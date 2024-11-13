@@ -51,8 +51,7 @@ resource "aws_security_group_rule" "https_ingress" {
 }
 
 module "access_logs" {
-  source  = "cloudposse/lb-s3-bucket/aws"
-  version = "0.19.0"
+  source  = "git::https://github.com/miquido/terraform-aws-lb-s3-bucket"
 
   enabled = module.this.enabled && var.access_logs_enabled && var.access_logs_s3_bucket_id == null
 
